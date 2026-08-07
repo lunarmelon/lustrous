@@ -25,6 +25,7 @@ in
     ./i3status-rust.nix
     ./swaylock.nix
     ./wleave.nix
+    ./wlsunset.nix
   ];
   
   config = mkIf sway.enable {
