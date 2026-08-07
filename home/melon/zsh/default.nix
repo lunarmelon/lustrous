@@ -58,7 +58,7 @@ in {
             "zdharma-continuum/fast-syntax-highlighting"
             "marlonrichert/zsh-autocomplete"
             #"zsh-users/zsh-history-substring-search" # not compatible with zsh-autocomplete
-            #"hlissner/zsh-autopair"
+            "hlissner/zsh-autopair"
           ];
         };
         sessionVariables = {
