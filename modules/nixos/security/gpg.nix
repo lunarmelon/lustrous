@@ -1,0 +1,33 @@
+{ pkgs, ... }:
+{
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    enableBrowserSocket = true;
+    pinentryPackage = pkgs.writeShellScriptBin "pinentry-fuzzel" ''
+      #!${pkgs.stdenv.shell}
+
+      # General information about the pinentry protocol is found here:
+      # https://gorbe.io/posts/gnupg/pinentry/documentation/
+
+      # Script is based on 'pinentry-dmenu'
+      # https://github.com/inco-cc/pinentry-dmenu/blob/master/pinentry-dmenu
+      echo "OK Please go ahead"
+      while read -r stdin; do
+          case $stdin in
+          GETPIN | getpin)
+              echo "D $(fuzzel --prompt-only "Passphrase: " --cache /dev/null --password --dmenu)"
+              echo "OK"
+              ;;
+          BYE | bye)
+              echo "OK closing connection"
+              exit 0
+              ;;
+          *)
+              echo "OK"
+              ;;
+          esac
+      done
+    '';
+  };
+}

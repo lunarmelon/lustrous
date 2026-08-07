@@ -1,0 +1,21 @@
+{
+  imports = [
+    ./earlyoom.nix
+    ./fonts.nix
+    ./logind.nix
+    ./loginManager.nix
+    ./logs.nix
+    ./misc.nix
+    ./monitoring.nix
+    ./oomd.nix
+    ./plasma.nix
+    ./printing.nix
+    ./revision.nix
+    ./runners.nix
+    ./schedulers.nix
+    ./serial.nix
+    ./size.nix
+    ./systemd.nix
+    ./xdg-portals.nix
+  ];
+}
