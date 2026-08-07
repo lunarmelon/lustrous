@@ -27,6 +27,7 @@
 
   moon = {
     programs = {
+      chromium.enable = true;
       librewolf.enable = true;
       neovim.enable = true;
       vscode.enable = true;
