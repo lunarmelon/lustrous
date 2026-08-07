@@ -24,6 +24,7 @@ in
   imports = [
     ./i3status-rust.nix
     ./swaylock.nix
+    ./wleave.nix
   ];
   
   config = mkIf sway.enable {
@@ -139,6 +140,9 @@ in
           # Special keys to adjust brightness via brightnessctl
           "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
           "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
+
+          # wleave
+          "${modifier}+Shift+v" = "exec wleave";
         };
       };
 
