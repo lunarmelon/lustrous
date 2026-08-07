@@ -12,7 +12,9 @@
     ./git.nix
     ./gtk.nix
     ./keepassxc.nix
+    ./lazygit.nix
     ./mpv.nix
+    ./music.nix
     ./neovim
     ./nemo.nix
     ./oh-my-posh
@@ -24,14 +26,4 @@
     ./zsh
     ./zoxide.nix
   ];
-
-  moon = {
-    programs = {
-      chromium.enable = true;
-      librewolf.enable = true;
-      neovim.enable = true;
-      vscode.enable = true;
-      zsh.enable = true;
-    };
-  };
 }
