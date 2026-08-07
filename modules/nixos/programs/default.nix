@@ -1,5 +1,6 @@
 {
   imports = [
+    ./gaming
     ./sway.nix
   ];
 }
