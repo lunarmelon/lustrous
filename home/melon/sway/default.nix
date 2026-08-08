@@ -22,6 +22,7 @@ let
 in
 {
   imports = [
+    ./dunst.nix
     ./i3status-rust.nix
     ./swaylock.nix
     ./wl-clipboard.nix
