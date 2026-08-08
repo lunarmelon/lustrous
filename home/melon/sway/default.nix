@@ -31,7 +31,7 @@ in
   ];
   
   config = mkIf sway.enable {
-    moon.packages = { inherit (pkgs) pulseaudio-ctl brightnessctl; };
+    moon.packages = { inherit (pkgs) pulseaudio-ctl brightnessctl grim slurp; };
 
     wayland.windowManager.sway = {
       enable = true;
@@ -151,16 +151,25 @@ in
 
           # clipboard
           "${modifier}+Shift+v" = "exec ${self}/scripts/cliphist-fuzzel-img.sh";
+
+          # screenshot
+          "${modifier}+Shift+s" = "exec ${self}/scripts/screenshot.sh";
         };
 
         startup = [
+          # clipboard
           {
             command = "wl-paste --type text --watch cliphist store";
             always = true;
           }
-
           {
             command = "wl-paste --type image --watch cliphist store";
+            always = true;
+          }
+
+          # notifications
+          { 
+            command = "${getExe config.services.dunst.package}";
             always = true;
           }
         ];
