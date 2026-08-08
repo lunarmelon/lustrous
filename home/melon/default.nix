@@ -17,6 +17,7 @@
     ./music.nix
     ./neovim
     ./nemo.nix
+    ./office.nix
     ./oh-my-posh
     ./sway
     ./terminal
