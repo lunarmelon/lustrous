@@ -6,7 +6,6 @@
         chromium.enable = true;
         librewolf.enable = true;
         neovim.enable = true;
-        vscode.enable = true;
         zsh.enable = true;
       };
     };
