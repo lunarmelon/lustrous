@@ -3,6 +3,7 @@
   pkgs, 
   config,
   osConfig,
+  self,
   ...
 }:
 let
@@ -16,7 +17,7 @@ in
       enable = true;
       package = pkgs.swaylock-effects;
       settings = {
-        image = ./phos_head.jpg;
+        image = "${self}/assets/phos_head.jpg";
         font = "JetBrainsMono Nerd Font";
         font-size = 44;
         indicator-radius = 200;

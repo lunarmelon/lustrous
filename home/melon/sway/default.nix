@@ -48,6 +48,8 @@ in
 
         menu = "${getExe config.programs.fuzzel.package}";
 
+        output."*".bg = "${self}/assets/outset_island2.png fill";
+
         input = {
           "*" = {
             xkb_layout = "us,latam";
@@ -143,7 +145,7 @@ in
           "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
 
           # wleave
-          "${modifier}+Shift+v" = "exec wleave";
+          "${modifier}+Shift+e" = "exec wleave";
         };
       };
 
