@@ -8,11 +8,9 @@
 }:
 let
   inherit (lib) mkIf mkOptionDefault getExe;
-
-  inherit (osConfig.moon.system) sway;
 in
 {
-  config = mkIf sway.enable {
+  config = mkIf config.moon.profiles.graphical.enable {
     programs.fuzzel = {
       enable = true;
       settings = {
