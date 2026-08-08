@@ -18,14 +18,14 @@ in
       settings = {
         main = {
           font = "JetBrainsMono Nerd Font:size=14";
-          fields = "name,filename,name,generic,categories, keywords";
-          show-action = "yes";
+          fields = "name,filename,name,generic,categories,keywords";
+          show-actions = "yes";
           lines = 10;
           width = 40;
           tabs = 8;
           horizontal-pad = 30;
           terminal = "${getExe config.programs.kitty.package}";
-          exit-on-keyboard = "no";
+          exit-on-keyboard-focus-loss = "no";
           icon-theme = "Papirus-Dark";
         };
       };
