@@ -24,6 +24,7 @@ in
   imports = [
     ./i3status-rust.nix
     ./swaylock.nix
+    ./wl-clipboard.nix
     ./wleave.nix
     ./wlsunset.nix
   ];
@@ -145,8 +146,23 @@ in
           "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
 
           # wleave
-          "${modifier}+Shift+e" = "exec wleave";
+          "${modifier}+Shift+e" = "exec ${getExe pkgs.wleave}";
+
+          # clipboard
+          "${modifier}+Shift+v" = "exec ${self}/scripts/cliphist-fuzzel-img.sh";
         };
+
+        startup = [
+          {
+            command = "wl-paste --type text --watch cliphist store";
+            always = true;
+          }
+
+          {
+            command = "wl-paste --type image --watch cliphist store";
+            always = true;
+          }
+        ];
       };
 
       extraConfig = concatStringsSep "\n" [
