@@ -2,6 +2,7 @@
   imports = [
     ./browser
     ./catppuccin.nix
+    ./codium.nix
     ./cursors.nix
     ./direnv.nix
     ./eza.nix
@@ -23,7 +24,6 @@
     ./terminal
     ./qt.nix
     ./ripgrep.nix
-    ./vscode.nix
     ./zsh
     ./zoxide.nix
   ];
