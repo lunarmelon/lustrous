@@ -17,6 +17,7 @@ in
     xdg.configFile."nvim".source = ./config;
 
     moon.packages = {
+      inherit (pkgs.python314Packages) pip python-lsp-server;
       inherit (pkgs)
         clang
         python3
@@ -27,6 +28,7 @@ in
         gnumake
         cargo
         nodejs
+        jdk
         ;
     };
 
@@ -102,11 +104,21 @@ in
           nil
           tree-sitter
           efm-langserver
+          typescript-language-server
+          marksman
 
           selene
           stylua
           nixfmt
           statix
+          biome
+          prettierd
+          htmlhint
+          shellcheck
+          eslint_d
+          fixjson
+          shfmt
+          ruff
           ;
       };
     };
