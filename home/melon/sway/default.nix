@@ -153,7 +153,7 @@ in
           "${modifier}+Shift+v" = "exec ${self}/scripts/cliphist-fuzzel-img.sh";
 
           # screenshot
-          "${modifier}+Shift+s" = "exec ${self}/scripts/screenshot.sh";
+          "${modifier}+Shift+s" = ''exec ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -d)" - | ${pkgs.wl-clipboard}/bin/wl-copy'';
         };
 
         startup = [
