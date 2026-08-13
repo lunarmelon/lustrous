@@ -8,6 +8,10 @@
         neovim.enable = true;
         zsh.enable = true;
       };
+
+      profiles.media = {
+        creation.enable = true;
+      };
     };
   };
 }

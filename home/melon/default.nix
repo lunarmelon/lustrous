@@ -22,6 +22,7 @@
     ./obs.nix
     ./office.nix
     ./oh-my-posh
+    ./packages.nix
     ./sway
     ./terminal
     ./qt.nix
