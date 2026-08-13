@@ -13,7 +13,7 @@ let
 in
 {
   config = mkIf sway.enable {
-    moon.packages = { inherit (pkgs) wl-clipboard; };
+    moon.packages = { inherit (pkgs) wl-clipboard-rs; };
     
     services.cliphist.enable = true;
   };
