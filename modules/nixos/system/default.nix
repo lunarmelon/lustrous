@@ -2,6 +2,7 @@
   imports = [
     ./earlyoom.nix
     ./fonts.nix
+    ./gnome.nix
     ./logind.nix
     ./loginManager.nix
     ./logs.nix
