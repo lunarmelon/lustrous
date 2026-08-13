@@ -19,6 +19,7 @@
     ./music.nix
     ./neovim
     ./nemo.nix
+    ./obs.nix
     ./office.nix
     ./oh-my-posh
     ./sway
