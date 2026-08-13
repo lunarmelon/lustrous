@@ -40,7 +40,7 @@ in
       # uBlock Origin
       {
         id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
-        version = "1.72.2";
+        version = "1.73.0";
         hash = "sha256-am9BiDyrsTDQCNXazBGIKEkMJwE3ZbNRiSR+i+oXg5E=";
       }
     ];
