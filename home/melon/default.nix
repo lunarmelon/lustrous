@@ -1,5 +1,6 @@
 {
   imports = [
+    ./bat.nix
     ./browser
     ./catppuccin.nix
     ./codium.nix
