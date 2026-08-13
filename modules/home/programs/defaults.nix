@@ -36,5 +36,26 @@ in
       ];
       default = "nvim";
     };
+
+    pager = {
+      type = str;
+      default = "less -FR";
+    };
+
+    manpager = {
+      type = str;
+      default = "nvim +Man";
+    };
+
+    screenLocker = {
+      type = nullOr (enum [
+        "swaylock"
+        "gtklock"
+      ]);
+      default = "swaylock";
+      descriptionb = ''
+        The lockscreen module to be loader by home-manager
+      '';
+    };
   };
 }
