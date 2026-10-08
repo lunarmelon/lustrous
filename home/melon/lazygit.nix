@@ -8,7 +8,6 @@
 
       gui = {
         nerdFontsVersion = 3;
-        authorColors.melon = "#f5c2e7";
       };
 
       git = {
