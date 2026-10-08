@@ -22,6 +22,8 @@ in
       sources = osConfig.catppuccin.sources;
 
       gtk.icon.enable = isGui;
+
+      lazygit.enable = false;
     };
   };
 }
