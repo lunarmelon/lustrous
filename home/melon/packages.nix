@@ -2,7 +2,6 @@
   lib,
   pkgs,
   config,
-  inputs',
   ...
 }:
 let
@@ -18,5 +17,11 @@ in
         gimp # image editor
         ;
     })
+    (optionalAttrs cfg.graphical.enable {
+      inherit (pkgs)
+        btop
+        ;
+    })
   ];
 }
+
