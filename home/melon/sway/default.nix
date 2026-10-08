@@ -32,6 +32,7 @@ in
       inherit (pkgs)
         brightnessctl
         grim
+        pavucontrol
         slurp
         ;
     };

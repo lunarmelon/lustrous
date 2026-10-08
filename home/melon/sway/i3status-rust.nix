@@ -1,6 +1,6 @@
 {
   lib,
-  pkgs, 
+  pkgs,
   config,
   osConfig,
   ...
@@ -12,15 +12,15 @@ let
 in
 {
   config = mkIf sway.enable {
-    wayland.windowManager.sway.config.bars = [ 
-      { 
+    wayland.windowManager.sway.config.bars = [
+      {
         statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${config.xdg.configHome}/i3status-rust/config-default.toml";
-        
+
         fonts = {
           names = [ "JetBrainsMono Nerd Font" ];
           size = 10.0;
         };
-        
+
         colors = {
           background = "$crust";
           statusline = "$text";
@@ -43,17 +43,17 @@ in
             border = "$crust";
             background = "$crust";
             text = "$text";
-          };          
-          
+          };
+
           urgentWorkspace = {
             border = "$crust";
             background = "$red";
             text = "$crust";
           };
         };
-      } 
+      }
     ];
-  
+
     programs.i3status-rust = {
       enable = true;
       bars = {
@@ -83,7 +83,18 @@ in
             icons = {
               icons = "material-nf";
               overrides = {
-                bat = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+                bat = [
+                  "󰁺"
+                  "󰁻"
+                  "󰁼"
+                  "󰁽"
+                  "󰁾"
+                  "󰁿"
+                  "󰂀"
+                  "󰂁"
+                  "󰂂"
+                  "󰁹"
+                ];
                 bat_charging = "󱐋";
               };
             };
@@ -144,3 +155,4 @@ in
     };
   };
 }
+
