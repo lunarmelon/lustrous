@@ -11,13 +11,12 @@ let
   prof = config.moon.profiles;
 in
 {
-  options.moon.programs.office.enable =
-    mkEnableOption "Enable office suites"
-    // {
-      default = prof.workstation.enable;
-    };
+  options.moon.programs.office.enable = mkEnableOption "Enable office suites" // {
+    default = prof.workstation.enable;
+  };
 
   config = mkIf cfg.enable {
-    moon.packages = { inherit (pkgs) onlyoffice-desktopeditors libreoffice-fresh; };
+    moon.packages = { inherit (pkgs) onlyoffice-desktopeditors libreoffice; };
   };
 }
+
