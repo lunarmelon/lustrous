@@ -12,9 +12,6 @@ let
     mkOptionDefault
     concatStringsSep
     getExe
-    mkMerge
-    forEach
-    elemAt
     ;
 
   modifier = "Mod4";
@@ -29,9 +26,15 @@ in
     ./wleave.nix
     ./wlsunset.nix
   ];
-  
+
   config = mkIf sway.enable {
-    moon.packages = { inherit (pkgs) pulseaudio-ctl brightnessctl grim slurp; };
+    moon.packages = {
+      inherit (pkgs)
+        brightnessctl
+        grim
+        slurp
+        ;
+    };
 
     wayland.windowManager.sway = {
       enable = true;
@@ -74,7 +77,7 @@ in
           size = 10.0;
         };
 
-        bindswitches = 
+        bindswitches =
           let
             laptop = "eDP-1";
           in
@@ -114,16 +117,16 @@ in
             text = "$text";
             indicator = "$rosewater";
             border = "$overlay0";
-          };          
-          
+          };
+
           urgent = {
             childBorder = "$peach";
             background = "$base";
             text = "$peach";
             indicator = "$overlay0";
             border = "$overlay0";
-          };          
-          
+          };
+
           placeholder = {
             childBorder = "$overlay0";
             background = "$base";
@@ -137,10 +140,10 @@ in
 
         keybindings = mkOptionDefault {
           # Special keys to adjust volume via PulseAudio
-          "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
-          "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
-          "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
-          "XF86AudioMicMute" = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+          "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_SINK@ 5%-";
+          "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_SINK@ 5%+";
+          "XF86AudioMicMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
 
           # Special keys to adjust brightness via brightnessctl
           "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
@@ -153,7 +156,8 @@ in
           "${modifier}+Shift+v" = "exec ${self}/scripts/cliphist-fuzzel-img.sh";
 
           # screenshot
-          "${modifier}+Shift+s" = ''exec ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -d)" - | ${pkgs.wl-clipboard}/bin/wl-copy'';
+          "${modifier}+Shift+s" =
+            ''exec ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -d)" - | ${pkgs.wl-clipboard}/bin/wl-copy'';
         };
 
         startup = [
@@ -168,7 +172,7 @@ in
           }
 
           # notifications
-          { 
+          {
             command = "${getExe config.services.dunst.package}";
             always = true;
           }
